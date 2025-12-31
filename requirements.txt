@@ -1,0 +1,43 @@
+# Python dependencies (pinned versions for reproducibility)
+
+# Core scientific computing
+numpy==1.24.3
+scipy==1.11.0
+pandas==2.0.3
+
+# Plotting and visualization
+matplotlib==3.7.1
+seaborn==0.12.2
+
+# Configuration management
+pyyaml==6.0
+python-dotenv==1.0.0
+
+# Testing
+pytest==7.4.0
+pytest-cov==4.1.0
+pytest-xdist==3.3.1
+
+# Code quality
+black==23.7.0
+flake8==6.0.0
+pylint==2.17.5
+
+# Data processing
+openpyxl==3.1.2
+pyarrow==13.0.0
+
+# Optional: REST API for integration
+flask==2.3.2
+requests==2.31.0
+
+# Optional: Distributed computing
+ray==2.7.0
+
+# Optional: Database support
+pymongo==4.4.1
+
+# Development
+ipython==8.14.0
+jupyter==1.0.0
+notebook==7.0.0

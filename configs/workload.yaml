@@ -1,0 +1,50 @@
+# Workload Configuration
+
+# IoT task generation
+tasks:
+  # Workload (Million Instructions) range
+  workload_mi_min: 100
+  workload_mi_max: 5000
+  
+  # Data sizes (MB)
+  input_size_mb_min: 1
+  input_size_mb_max: 100
+  output_size_mb_min: 1
+  output_size_mb_max: 100
+  
+  # Memory requirement (MB)
+  memory_mb_min: 100
+  memory_mb_max: 1024
+  
+  # Deadline slack factor (multiplier on estimated execution time)
+  deadline_slack_min: 0.5
+  deadline_slack_max: 2.0
+
+# Task arrival
+arrival:
+  # Poisson arrival rate (tasks per second)
+  rate_min: 1.0
+  rate_max: 5.0
+
+# Criticality distribution
+criticality:
+  # Ratio of critical tasks (0.0-1.0)
+  critical_ratio: 0.2
+
+# Task traces (public datasets)
+traces:
+  alibaba_2018:
+    enabled: true
+    # Sample size for experiments
+    sample_sizes: [1000, 2000, 3000]
+  
+  google_2011:
+    enabled: true
+    sample_sizes: [1000, 2000, 3000]
+
+# Healthcare scenario (iFogSim)
+healthcare:
+  enabled: true
+  task_counts: [200, 500, 1000]
+  criticality_ratio: 0.4
+  deadline_strict: true

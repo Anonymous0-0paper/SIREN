@@ -1,0 +1,41 @@
+# Algorithm Configuration for SIREN MD-GWO
+
+mdgwo:
+  # Population size (N_P)
+  population_size: 100
+  
+  # Maximum iterations (I)
+  max_iterations: 200
+  
+  # Memory decay strategy
+  memory_decay_type: "linear"  # "linear" or "exponential"
+  
+  # Replication factor maximum
+  replication_max: 3
+  
+  # Frequency bounds (GHz)
+  frequency_min_ghz: 0.4
+  frequency_max_ghz: 2.0
+
+# Multi-objective weights
+objectives:
+  beta_energy: 0.6        # β₁: weight for energy minimization
+  beta_reliability: 0.4   # β₂: weight for reliability maximization
+
+# Game-theoretic weights
+game_theory:
+  omega_reliability: 0.4  # ω_R: payoff weight for reliability
+  omega_energy: 0.6       # ω_E: payoff weight for energy
+
+# Constraint penalty coefficients
+penalty_coefficients:
+  cpu: 1.0e4              # ρ_cpu
+  memory: 1.0e4           # ρ_mem
+  deadline: 1.0e5         # ρ_dl
+  reliability: 1.0e5      # ρ_rel
+
+# Minimum reliability for critical tasks
+minimum_reliability_critical: 0.99
+
+# Random seed for reproducibility
+random_seed: 42

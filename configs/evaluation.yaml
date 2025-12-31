@@ -1,0 +1,85 @@
+# Evaluation Configuration
+
+# Random seeds for statistical robustness
+seeds: [42, 123, 456, 789, 1011, 1213, 1415, 1617, 1819, 2021]
+
+# Baselines to compare against
+baselines:
+  - name: "S-GWO"
+    type: "standard_gwo"
+    enabled: true
+  
+  - name: "FogMatch"
+    type: "fogmatch"
+    enabled: true
+  
+  - name: "PSO"
+    type: "pso"
+    enabled: true
+  
+  - name: "MoHHOTS"
+    type: "mohhots"
+    enabled: true
+  
+  - name: "FF"
+    type: "first_fit"
+    enabled: true
+  
+  - name: "Relief"
+    type: "relief"
+    enabled: true
+  
+  - name: "MPSO-FT"
+    type: "mpso_ft"
+    enabled: true
+
+# Evaluation scenarios
+scenarios:
+  alibaba:
+    workload: "alibaba_2018"
+    task_scales: [1000, 2000, 3000]
+    node_scales: [20, 50, 100]
+    enabled: true
+  
+  google:
+    workload: "google_2011"
+    task_scales: [1000, 2000, 3000]
+    node_scales: [20, 50, 100]
+    enabled: true
+  
+  healthcare:
+    workload: "healthcare"
+    task_scales: [200, 500, 1000]
+    enabled: true
+
+# Fault injection
+fault_injection:
+  enabled: true
+  fault_rates: [0.01, 0.05, 0.10, 0.20]  # 1%, 5%, 10%, 20% node failures
+
+# Metrics to compute
+metrics:
+  - task_success_rate
+  - total_energy
+  - avg_response_time
+  - network_usage
+  - convergence_rate
+  - solution_diversity
+
+# Output format
+output:
+  format: "csv"  # "csv", "json", "parquet"
+  precision: 4   # Decimal places
+  plot_figures: true
+  generate_tables: true
+  output_dir: "data/outputs"
+
+# Plotting
+plotting:
+  format: "pdf"  # "pdf", "png", "svg"
+  dpi: 300
+  style: "seaborn"
+  figsize: [10, 6]
+  fonts:
+    family: "DejaVu Sans"
+    size: 12

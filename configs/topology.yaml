@@ -1,0 +1,60 @@
+# Topology Configuration for Fog-Cloud System
+
+fog_nodes:
+  # Number of fog nodes
+  count: 20
+  
+  # CPU specifications (MIPS range)
+  cpu_mips_min: 1000
+  cpu_mips_max: 10000
+  
+  # Memory (MB range)
+  memory_mb_min: 1024
+  memory_mb_max: 8192
+  
+  # Bandwidth (Mbps range)
+  bandwidth_mbps_min: 100
+  bandwidth_mbps_max: 1000
+  
+  # Failure rate (failures/hour)
+  failure_rate_min: 1.0e-5
+  failure_rate_max: 1.0e-3
+  
+  # Power specifications
+  idle_power_w_min: 5.0
+  idle_power_w_max: 20.0
+  
+  # DVFS Coefficients (P(f) = alpha*f^3 + beta*f + gamma)
+  dvfs_alpha: 0.0001
+  dvfs_beta: 0.0
+  dvfs_gamma: 0.0
+  
+  # Communication power
+  tx_power_w: 1.8  # Transmission
+  rx_power_w: 1.2  # Reception
+
+cloud:
+  # Number of cloud data centers
+  count: 1
+  
+  # Cloud resources (virtually unlimited)
+  cpu_mips: 100000
+  memory_mb: 131072
+  
+  # Cloud bandwidth
+  bandwidth_mbps_in: 10000
+  bandwidth_mbps_out: 10000
+  
+  # Cloud failure rate (negligible)
+  failure_rate: 1.0e-7
+
+network:
+  # Network latencies (milliseconds)
+  device_to_fog_latency_ms_min: 10
+  device_to_fog_latency_ms_max: 50
+  
+  fog_to_fog_latency_ms_min: 5
+  fog_to_fog_latency_ms_max: 30
+  
+  fog_to_cloud_latency_ms_min: 50
+  fog_to_cloud_latency_ms_max: 150

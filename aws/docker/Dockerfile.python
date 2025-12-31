@@ -1,0 +1,30 @@
+# Dockerfile for Python SIREN environment
+
+FROM python:3.11-slim
+
+WORKDIR /workspace
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    jq \
+    awscli \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy source code
+COPY . /workspace/
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir -e .
+
+# Create output directories
+RUN mkdir -p /workspace/data/outputs /workspace/results/{figures,tables}
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/workspace/python:$PYTHONPATH
+
+# Default command
+CMD ["python", "/workspace/python/scripts/cli.py", "--help"]
